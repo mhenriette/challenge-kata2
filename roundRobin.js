@@ -1,5 +1,5 @@
 const roundRobin = (jobs, slice, index) => {
-  let cc = 0;
+  let clockCycles = 0;
   let jobIndex = 0;
   const jobQueue = [...jobs];
 
@@ -8,10 +8,10 @@ const roundRobin = (jobs, slice, index) => {
     const timeSlice = Math.min(slice, currentJob);
 
     jobQueue[jobIndex] -= timeSlice;
-    cc += timeSlice;
+    clockCycles += timeSlice;
 
     jobIndex = (jobIndex + 1) % jobQueue.length;
   }
 
-  return cc;
+  return clockCycles;
 };
